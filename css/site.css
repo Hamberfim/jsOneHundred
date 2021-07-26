@@ -98,6 +98,10 @@ main>.container {
     width: 100%;
 }
 
+.hundredTitle {
+    font-family: 'Faster One', cursive;
+}
+
 /* Prism CSS for Pre/Code tags */
 
 code[class*="language-"], pre[class*="language-"] {
