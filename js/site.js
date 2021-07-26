@@ -1,69 +1,56 @@
 "use strict";
 
-//get starting values from the screen
+//Start or Controll function - get needed values
 function getValues() {
 
-    //1. get the values from the page
-    //Here we need to use javascript to "Get" the values fromt the Html file.
-    //We can do this with javascript because all of the html tags are accessible 
-    //and we simply need to (id)entify them!
-    //DO:
-    //Use "document.getElementById" to locate and your html tags for startValue and endValue
+    // get unique input values from the page
+    let startValue = document.getElementById('startValue').value;
+    let endValue = document.getElementById('endValue').value;
 
+    // Use the "parseInt()" function to cast/convert from string input to integers    
+    startValue = parseInt(startValue);
+    endValue = parseInt(endValue);
 
-    //2. parse our input in integers    
-    //Now convert your values for startValue and endValue to integers. (ie. startValue.value/endValue.value)
-    //DO:
-    //Use the "parseInt()" function to convert them
-
-
-    //3. check to see if they are in fact integers
-    //Now validate that you will be using actual Numbers throughout the rest of the code.
-    //Do:
-    //Test your new integers with an "if-statement".  You'll need to be sure that 
-    //both startValue and endValue are Numbers so use the "&&" in your if-statement to be sure.
-    //Wrap each value with the Number.isInteger function when testing
-    {
-
-        //4. generate the numbers return them in an array
-        //If both values are Numbers then call your custom function generateNumbers().
-        //DO:
-        //Pass both values to the generateNumbers(startValue, endValue) and store the
-        //result in a variable called numbers.
-
+    // validate - check if above parsed input are integers
+    if (Number.isInteger(startValue) && Number.isInteger(endValue)) {
+        // if true call generateNumbers() - generate the numbers return them in an array
+        let numbers = generateNumbers(startValue, endValue);
 
         //5. display the results on the page 
         //Call your custom function displayNumbers to show the result on the page.
         //DO:
         //Pass your "numbers" variable to the displayNumbers(numbers) function
 
-    
+    } else {
+        alert("You must enter whole numbers.");
     }
+
+    console.log(`Start Value ${startValue}, data type: ${typeof(startValue)}`);
+    console.log(`End Value ${endValue}, data type: ${typeof(endValue)}`);
+
 }
 
-//Generate numbers based on the start and endvalue
-function generateNumbers(startValue, endValue) {
-    //DO:
-    //Declare an array variable called numbers and set it equal to []
-    
-    
-    //loop over the values from start to end.
-    //DO:
-    //Add a "for-loop" here that is controlled by your parameters
-    //startValue and endValue
-   {
-       //DO:
-       //In the for-loop, add each nember encounterd to the "numbers" array
-        
+//Logic function - Generate numbers based on the start and endvalue
+function generateNumbers(sValue, eValue) {
+    // Declare an array variable called numbers and set it equal to []
+    let numbers = [];
+
+
+    // loop over the values from start to end.
+    // sValue and eValue
+    for (let i = sValue; i <= eValue; i++) {
+        // add each nember to the "numbers" array
+        numbers.push(i);
+
     }
-    
-    //DO:
+
     //Return the "numbers" array
+    return numbers;
 
 }
 
-
-//display the numbers to the screen
+/*
+//View/Display Function - display the results (numbers) to the screen
 function displayNumbers(numbers) {
     //DO:
     //Delare a variable called "className" and set it equal to 'even'
@@ -106,3 +93,5 @@ function displayNumbers(numbers) {
     //Find the "results" element and set it's innerHTML to "templateRows"
 
 }
+
+*/
