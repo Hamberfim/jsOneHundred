@@ -17,17 +17,13 @@ function getValues() {
         // if true call generateNumbers() - generate the numbers return them in an array
         numbers = generateNumbers(startValue, endValue);
 
+        // Call the display function with "numbers" variable to display results on the page 
+        displayNumbers(numbers)
+
     } else {
         alert("You must enter whole integers.");
 
     }
-
-    // Call the display function with "numbers" variable to display results on the page 
-    displayNumbers(numbers)
-
-    // debug-testing
-    // console.log(`Start Value ${startValue}, data type: ${typeof(startValue)}`);
-    // console.log(`End Value ${endValue}, data type: ${typeof(endValue)}`);
 
 }
 
