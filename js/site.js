@@ -24,6 +24,7 @@ function getValues() {
         alert("You must enter whole numbers.");
     }
 
+    // debug-testing
     console.log(`Start Value ${startValue}, data type: ${typeof(startValue)}`);
     console.log(`End Value ${endValue}, data type: ${typeof(endValue)}`);
 
