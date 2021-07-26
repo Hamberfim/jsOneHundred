@@ -2,6 +2,7 @@
 
 //Start or Controll function - get needed values
 function getValues() {
+    let numbers;
 
     // get unique input values from the page
     let startValue = document.getElementById('startValue').value;
@@ -14,19 +15,19 @@ function getValues() {
     // validate - check if above parsed input are integers
     if (Number.isInteger(startValue) && Number.isInteger(endValue)) {
         // if true call generateNumbers() - generate the numbers return them in an array
-        let numbers = generateNumbers(startValue, endValue);
-
-        // Call the display function with "numbers" variable to display results on the page 
-
-        displayNumbers(numbers)
+        numbers = generateNumbers(startValue, endValue);
 
     } else {
-        alert("You must enter whole numbers.");
+        alert("You must enter whole integers.");
+
     }
 
+    // Call the display function with "numbers" variable to display results on the page 
+    displayNumbers(numbers)
+
     // debug-testing
-    console.log(`Start Value ${startValue}, data type: ${typeof(startValue)}`);
-    console.log(`End Value ${endValue}, data type: ${typeof(endValue)}`);
+    // console.log(`Start Value ${startValue}, data type: ${typeof(startValue)}`);
+    // console.log(`End Value ${endValue}, data type: ${typeof(endValue)}`);
 
 }
 
@@ -51,46 +52,32 @@ function generateNumbers(sValue, eValue) {
 
 //View/Display Function - display the results (numbers) to the screen
 function displayNumbers(numbers) {
-    //DO:
-    //Delare a variable called "className" and set it equal to 'even'
-    let className;
+    // Delare a variable called "className" and set it equal to 'even' for use with displaying even numbers
+    let className = 'even';
 
-    //DO:
     //Decalre a variable called "templateRows" and set it equal to ''
-    let templateRows;
+    let templateRows = "";
 
-    //DO:
-    //Create a for-loop that will loop through all of the items in the
-    //numbers array.  Use a loop control variable called "index" and 
-    //Remember to start at 0 and to only allow your loop to 
-    //run up to numbers.length-1
-    {
-        //DO:
-        //In your for-loop declare a variable called "number" and set it equal to 
-        //numbers[index]
+    // loop through the numbers array- allow loop to run up to numbers.length
 
-        //DO:
-        //Use an "if-else-statement" to test each number against the zero modulus(%)
-        //of the number 2. (ie. number % 2 == 0)
-        {
-            //DO: 
-            //If your number is modulus 2 then set "className" equal to 'even'
-            
+    for (let i = 0; i < numbers.length; i++) {
+        // declare "number" variable and set it equal to numbers[index]
+        let number = numbers[i];
+
+        // use "if-else-statement" to test each number against the zero modulus(%). (ie. number % 2 == 0)
+        if (number % 2 == 0) {
+            className = 'even';
+            // concate loop
+            templateRows += `<tr><td class="${className}">${number}</td></tr>`;
         } else {
-            //DO:
-            //Else set "className" equal to 'odd'
-
+            className = 'odd';
+            // concate loop
+            templateRows += `<tr><td class="${className}">${number}</td></tr>`;
         }
-        
-        //DO:
-        //Each time through the loop concatenate "templateRows" with the following markup
-        //`<tr><td class="${className}">${number}</td></tr>`.  
-        // ** Note to concatenate use the "+=" symbol
-        // You should be able to recognize tabove markup as html
+
     }
 
-    //DO:
-    //Finally, show your resulting markkup on your page using getElementbyId.
-    //Find the "results" element and set it's innerHTML to "templateRows"
-
+    // HTML page Markup - set the "results" element/innerHTML to the concatenated "templateRows"
+    document.getElementById('results').innerHTML = templateRows;
+    
 }

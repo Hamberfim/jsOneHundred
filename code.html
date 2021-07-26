@@ -26,8 +26,9 @@
     <!-- Nav Section -->
     <nav class="navbar navbar-expand-md navbar-dark fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand hundredTitle" href="#"><img class="d-inline-block ms-1" src="img/android-chrome-192x192.png"
-                    alt="Hamberfim Logo" height="40"><span class="align-text-top"> One-Hundred</span></a>
+            <a class="navbar-brand hundredTitle" href="#"><img class="d-inline-block ms-1"
+                    src="img/android-chrome-192x192.png" alt="Hamberfim Logo" height="40"><span class="align-text-top">
+                    One-Hundred</span></a>
             <button class="navbar-toggler ms-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -44,7 +45,8 @@
                         <a class="nav-link active" aria-current="page" href="code.html">The Code</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" target="_blank" href="https://github.com/Hamberfim/jsOneHundred">The Git Repo</a>
+                        <a class="nav-link" target="_blank" href="https://github.com/Hamberfim/jsOneHundred">The Git
+                            Repo</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" target="_blank" href="https://adhamlin.myportfolio.com/">Protfolio</a>
@@ -57,25 +59,102 @@
     <!-- Main Section -->
     <main class="flex-shrink-0">
         <div class="container-fluid py-4 px-5">
-            <h2 class="border-1 border-bottom border-dark mt-5">The Code for <span class="hundredTitle"> One-Hundred</span></h2>
+            <h2 class="border-1 border-bottom border-dark mt-5">The Code for <span class="hundredTitle">
+                    One-Hundred</span></h2>
             <div class="row row-cols-1 row-cols-md-2 my-2">
                 <div class="col-md-8 ">
                     <!-- Javascript Display -->
                     <pre class="line-numbers">
                         <code class="language-javascript">
-                            // call hello World to test Prism Code Display
-                            function helloWorld() {
-                                alert("Test - Hello World!");
+                            "use strict";
+
+                            //Start or Controll function - get needed values
+                            function getValues() {
+                                let numbers;
+
+                                // get unique input values from the page
+                                let startValue = document.getElementById('startValue').value;
+                                let endValue = document.getElementById('endValue').value;
+
+                                // Use the "parseInt()" function to cast/convert from string input to integers    
+                                startValue = parseInt(startValue);
+                                endValue = parseInt(endValue);
+
+                                // validate - check if above parsed input are integers
+                                if (Number.isInteger(startValue) && Number.isInteger(endValue)) {
+                                    // if true call generateNumbers() - generate the numbers return them in an array
+                                    numbers = generateNumbers(startValue, endValue);
+
+                                } else {
+                                    alert("You must enter whole integers.");
+
+                                }
+
+                                // Call the display function with "numbers" variable to display results on the page 
+                                displayNumbers(numbers)
+
+                                // debug-testing
+                                // console.log(`Start Value ${startValue}, data type: ${typeof(startValue)}`);
+                                // console.log(`End Value ${endValue}, data type: ${typeof(endValue)}`);
+
+                            }
+
+                            //Logic function - Generate numbers based on the start and endvalue
+                            function generateNumbers(sValue, eValue) {
+                                // Declare an array variable called numbers and set it equal to []
+                                let numbers = [];
+
+
+                                // loop over the sValue and eValue from start to end.
+                                for (let i = sValue; i <= eValue; i++) {
+                                    // add each number to the "numbers" array
+                                    numbers.push(i);
+
+                                }
+
+                                //Return the "numbers" array
+                                return numbers;
+
+                            }
+
+                            //View/Display Function - display the results (numbers) to the screen
+                            function displayNumbers(numbers) {
+                                // Delare a variable called "className" and set it equal to 'even' for use with displaying even numbers
+                                let className = 'even';
+
+                                //Decalre a variable called "templateRows" and set it equal to ''
+                                let templateRows = "";
+
+                                // loop through the numbers array- allow loop to run up to numbers.length
+
+                                for (let i = 0; i < numbers.length; i++) {
+                                    // declare "number" variable and set it equal to numbers[index]
+                                    let number = numbers[i];
+
+                                    // use "if-else-statement" to test each number against the zero modulus(%). (ie. number % 2 == 0)
+                                    if (number % 2 == 0) {
+                                        className = 'even';
+                                        // concate loop
+                                        templateRows += `<tr><td class="${className}">${number}</td></tr>`;
+                                    } else {
+                                        className = 'odd';
+                                        // concate loop
+                                        templateRows += `<tr><td class="${className}">${number}</td></tr>`;
+                                    }
+
+                                }
+
+                                // HTML Markup - set the "results" element and it's innerHTML to the concatenated "templateRows"
+                                document.getElementById('results').innerHTML = templateRows;
+                                
                             }
                         </code>
                     </pre>
                 </div>
                 <div class="col-md-4">
                     <!-- Code Description -->
-                    <p>The code is structure in one function.</p>
-                    <h5>Hello World</h5>
-                    <p>The Hello World function is call to display an alert with a message containing<br>'Test - Hello
-                        World!'</p>
+                    <h5>One-Hundred</h5>
+                    <p>Using HTML, custom CSS, Bootstrap and Javascript we can design an application that can take user input of a starting value and ending value, display a count of the resulting numbers and denote the even numbers in <span class="fw-bold">bold</span></p>
                 </div>
             </div>
         </div>
