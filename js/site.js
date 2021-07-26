@@ -2,8 +2,6 @@
 
 //Start or Controll function - get needed values
 function getValues() {
-    let numbers;
-
     // get unique input values from the page
     let startValue = document.getElementById('startValue').value;
     let endValue = document.getElementById('endValue').value;
@@ -15,7 +13,7 @@ function getValues() {
     // validate - check if above parsed input are integers
     if (Number.isInteger(startValue) && Number.isInteger(endValue)) {
         // if true call generateNumbers() - generate the numbers return them in an array
-        numbers = generateNumbers(startValue, endValue);
+        let numbers = generateNumbers(startValue, endValue);
 
         // Call the display function with "numbers" variable to display results on the page 
         displayNumbers(numbers)
