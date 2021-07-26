@@ -16,10 +16,9 @@ function getValues() {
         // if true call generateNumbers() - generate the numbers return them in an array
         let numbers = generateNumbers(startValue, endValue);
 
-        //5. display the results on the page 
-        //Call your custom function displayNumbers to show the result on the page.
-        //DO:
-        //Pass your "numbers" variable to the displayNumbers(numbers) function
+        // Call the display function with "numbers" variable to display results on the page 
+
+        displayNumbers(numbers)
 
     } else {
         alert("You must enter whole numbers.");
@@ -36,10 +35,9 @@ function generateNumbers(sValue, eValue) {
     let numbers = [];
 
 
-    // loop over the values from start to end.
-    // sValue and eValue
+    // loop over the sValue and eValue from start to end.
     for (let i = sValue; i <= eValue; i++) {
-        // add each nember to the "numbers" array
+        // add each number to the "numbers" array
         numbers.push(i);
 
     }
@@ -49,14 +47,16 @@ function generateNumbers(sValue, eValue) {
 
 }
 
-/*
+
 //View/Display Function - display the results (numbers) to the screen
 function displayNumbers(numbers) {
     //DO:
     //Delare a variable called "className" and set it equal to 'even'
+    let className;
 
     //DO:
     //Decalre a variable called "templateRows" and set it equal to ''
+    let templateRows;
 
     //DO:
     //Create a for-loop that will loop through all of the items in the
@@ -93,5 +93,3 @@ function displayNumbers(numbers) {
     //Find the "results" element and set it's innerHTML to "templateRows"
 
 }
-
-*/
