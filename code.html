@@ -132,11 +132,11 @@
                                     if (number % 2 == 0) {
                                         className = 'even';
                                         // concate loop - Template literals (Template strings) do not render correctly in this code view - see the project git repo
-                                        templateRows += `<tr><td class="${className}">${number}</td></tr>`;
+                                        templateRows += `&lt;tr>&lt;td class="${className}" >${number}&lt;/td>&lt;/tr>`;
                                     } else {
                                         className = 'odd';
                                         // concate loop - Template literals (Template strings) do not render correctly in this code view - see the project git repo
-                                        templateRows += `<tr><td class="${className}">${number}</td></tr>`;
+                                        templateRows += `&lt;tr>&lt;td class="${className}" >${number}&lt;/td>&lt;/tr>`;
                                     }
 
                                 }
@@ -150,10 +150,25 @@
                 </div>
                 <div class="col-md-4">
                     <!-- Code Description -->
-                    <h5>One-Hundred</h5>
+                    <h4 class="hundredTitle">One-Hundred</h4>
                     <p>Using HTML, custom CSS, Bootstrap and Javascript we can design a responsive application that can
                         take user input (starting value and ending value), generate and display a count of the resulting
                         range of numbers and denote the even numbers in <span class="fw-bold">bold</span>.</p>
+                    <h5 class="fw-bold">getValues() function:</h5>
+                    <p>Here we use javascript to "Get" the values from the HTML file user input fields by using
+                        "document.getElementById"
+                        to locate the html tags with id's of startValue and endValue</p>
+                    <h5 class="fw-bold">Parse our input:</h5>
+                    <p>Here we use the built in function <span class="fw-bold">"parseInt()"</span> to convert the input
+                        values for startValue and endValue, which are strings, to integers</p>
+                    <h5 class="fw-bold">Validate input:</h5>
+                    <p>Using an if-statement we want to validate that the parsed input are actually integers since <span
+                            class="fw-bold">"parseInt()"</span> will convert a non-number string to <span
+                            class="fw-bold">NaN</span> (<em>meaing <span class="fw-bold">N</span>ot <span
+                                class="fw-bold">a</span>
+                            <span class="fw-bold">N</span>umber</em>). If true, we call a function that will generate an
+                        array of the numbers based on the range of startValue and endValue input. If not, we display an
+                        alert box message informing the user to input integers.</p>
                 </div>
             </div>
         </div>
