@@ -16,7 +16,7 @@ function getValues() {
         let numbers = generateNumbers(startValue, endValue);
 
         // Call the display function with "numbers" variable to display results on the page 
-        displayNumbers(numbers)
+        displayNumbers(numbers);
 
     } else {
         alert("You must enter whole integers.");

@@ -88,11 +88,8 @@
                                 }
 
                                 // Call the display function with "numbers" variable to display results on the page 
-                                displayNumbers(numbers)
+                                displayNumbers(numbers);
 
-                                // debug-testing
-                                // console.log(`Start Value ${startValue}, data type: ${typeof(startValue)}`);
-                                // console.log(`End Value ${endValue}, data type: ${typeof(endValue)}`);
 
                             }
 
@@ -169,6 +166,17 @@
                             <span class="fw-bold">N</span>umber</em>). If true, we call a function that will generate an
                         array of the numbers based on the range of startValue and endValue input. If not, we display an
                         alert box message informing the user to input integers.</p>
+                    <h5 class="fw-bold">generateNumbers() function:</h5>
+                    <p>Both integers are pass to the generateNumbers(sValue, eValue) function that will
+                        loop from the start to end range populating the empty 'numbers = [ ]' array and then
+                        return that array.</p>
+                    <h5 class="fw-bold">displayNumbers() function:</h5>
+                    <p>After the populated array is returned the displayNumbers(numbers) function is called. Looping
+                        through the array with an if-statement to check each number against the zero modulus for even or
+                        odd numbers. Each then being concatenated to the template literal HTML markup variable called
+                        "templateRows" with it's set 'className' of even or odd. Finally, the completed "templateRows"
+                        results are set in the
+                        HTML page tag with element id of 'results' using getElementbyId and it's innerHTML property.</p>
                 </div>
             </div>
         </div>
